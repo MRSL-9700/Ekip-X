@@ -1,2 +1,2 @@
-# Ekip-X
+# Ekip X
 Ekip X  - Admin Panel
