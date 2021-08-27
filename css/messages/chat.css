@@ -1,0 +1,60 @@
+﻿.solavatar {
+	
+	width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+	background-color:transparent; 
+	float:left;
+	
+}
+
+.sagavatar {
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+	background-color: #fdbf68;
+    float: right;
+	
+}
+
+.solmesaj {
+	
+	display: inline-block;
+	padding: 20px; 
+	border-radius: 6px; 
+	width: calc(100% - 85px); 
+	min-width: 100px; 
+	position: relative; 
+	background-color: #ffe6cb; 
+	margin-left: 20px;
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 20px;
+	transition: all 0.5s linear;
+	opacity: 1;
+	
+}
+
+.sagmesaj {
+	
+	background-color: #c7eafc;
+	margin-right: 20px;
+	float: right;
+	display: inline-block;
+	padding: 20px;
+	border-radius: 50px;
+    width: calc(100%);
+    min-width: 100px;
+    position: relative;
+	
+}
+
+.font {
+	
+	font-family:ubuntu-regular, sans-serif;
+	font-size:12px;
+	
+}

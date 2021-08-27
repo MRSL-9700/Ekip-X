@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ekipx Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+  <!-- Messages Modal -->
+  <link href="css/messages/style.css" rel="stylesheet">
+  <link href="css/messages/chat.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="index.php"><img src="images/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo-mini.svg" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <div class="search-field d-none d-md-block">
+          <form class="d-flex align-items-center h-100" action="#">
+            <div class="input-group">
+              <div class="input-group-prepend bg-transparent">
+                  <i class="input-group-text border-0 mdi mdi-magnify"></i>                
+              </div>
+              <input type="text" class="form-control bg-transparent border-0" placeholder="Proje Arama">
+            </div>
+          </form>
+        </div>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item"> 
+              <button type="button" class="btn btn-primary btn-sm btn-rounded" id='chat_open'>
+                Sohbet
+              </button>  
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="true">
+              <div class="nav-profile-img">
+                <img src="images/faces/face3.jpg" alt="image" id='user_profile'>
+                <span class="availability-status online"></span>             
+              </div>
+              <div class="nav-profile-text">
+                <p class="mb-1 text-black" id="user_ad">
+                  
+                </p>
+              </div>
+            </a>
+            <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" id="logout">
+                <i class="mdi mdi-logout mr-2 text-primary"></i>
+                Çıkış
+              </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block full-screen-link">
+            <a class="nav-link">
+              <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+            </a>
+          </li>
+          <li class="nav-item d-none d-lg-block full-screen-link" id="batarya">
+            
+              Batarya
+          </li>
+
+          <li class="nav-item nav-settings d-none d-lg-block">
+            <a class="nav-link" href="#">
+              <i class="mdi mdi-format-line-spacing"></i>
+            </a>
+          </li>
+          
+        </ul>
+        
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav" id="sidebar_ul">
+          <li class="nav-item nav-profile">
+            <a href="index.php" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="images/faces/" alt="profile" id="user_profil">
+                <span class="login-status online"></span> <!--change to offline or busy as needed-->              
+              </div>
+              <div class="nav-profile-text d-flex flex-column">
+                <span class="font-weight-bold mb-2" id="user_isim"> </span>
+                
+              </div>
+              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          
+          <!-- page-header -->
+          <div class="page-header">
+            <h3 class="page-title">
+              <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <i class="mdi mdi-home"></i>                 
+              </span>
+              Dashboard
+            </h3>
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                  <span></span> Açıklama
+                  <i  title="Firma Panelinin Ana Sayfasındasınız" class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                </li>
+              </ul>
+            </nav>
+
+          </div>
+          <!-- page-header -->
+
+      <div class="container-fluid">
+        
+      
+        <div class="row mb-4">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                
+                <table class="grid-margin text-left table table-hover" id="personel">
+                    
+                  <tr class="bg-gradient-danger text-white" style="font-size:10px;">
+                    <th style="font-size:14px;">Personeller  <br> <br> Ad </th> 
+                    <th style="font-size:12px;"> <br> <br> Yetki </th> 
+                    <th style="font-size:13px;"> <br> <br> Durum </th>
+                    <th  style="font-size:12px;"colspan="2"> <br> <br> <br> En Son Giris Tarihi </th>
+                  </tr>
+                </table>
+              </div>
+          </div>
+          </div>
+
+          <div class="col-md-12 mt-2">
+            <div class="card">
+              <div class="card-body">
+                <table class="table table-hover" id="is">
+                    <tr class="bg-gradient-success text-white" style="font-size:10px;">
+                        <th style="font-size:14px;">İsler  <br> <br> İs Adı </th> 
+                        <th style="font-size:12px;"> <br> <br> Yetkili Kişi </th> 
+                        <th style="font-size:13px;"> <br> <br> İs Kategori </th>
+                        <th style="font-size:13px;"> <br> <br> İsin Verildiği Tarih </th>
+                        <th style="font-size:13px;"> <br> <br> İsin Alındığı Tarih </th>
+                        <th style="font-size:13px;"> <br> <br> İs Teslim Edildiği Tarih </th>
+                        <th  style="font-size:12px;"colspan="2"> <br> <br> <br> İs Durumu </th>
+                      </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>    
+
+</div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="#" target="_top">Mürsel Şen</a>. Tüm Hakları Saklıdır.</span>
+          </div>
+        </footer>
+
+        <!-- Button trigger modal -->
+        
+        
+        <!-- Modal -->
+            
+              <div class="chat_window w-50" id="chat_window" style='display: none;'>
+                  <div class="top_menu">
+                      <div class="buttons">
+                          
+                          <div class="button w-100 h-100 close pl-2 pb-2 mb-2" id='close' style="padding: 2.5px; color:white; ">
+                              <b>X</b>
+                          </div>
+                          
+                      </div>
+                          <div class="title">Ekipx Sohbet Penceresi</div>
+                  </div>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-12">
+                        <ul class="messages" id='sohbet' style="overflow-x: hidden; overflow-y: scroll; padding-bottom:60px;">
+                            <!--li class="solavatar"></li>
+                            <li class="solmesaj">
+                                      <p style="float:right;">15:30</p> 
+                                      <p class="font">Ad Soyad</p>
+                                      Mesaj Alanı 
+                                      <br><br><br><br>
+                                  </li -->
+                        </ul>
+                        <div class="bottom_wrapper clearfix" style="position:fixed; bottom: 1px; left:1px;">
+                        <div class="message_input_wrapper">
+                          <input type="text" class="message_input" id="message_input" placeholder="Mesajınızı Giriniz.." />
+                        </div>
+                        <button class="send_message" id="message_submit" > Gönder </button>
+                        </div>
+                        
+                    </div>
+                  </div>
+                </div>
+              </div>  
+              
+              
+        <!-- Modal -->
+
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page--> <script src="js/dashboard.js"></script>
+
+    <!-- Jquery --> <script src="js/jquery.js"></script> <!-- Jquery -->
+    
+    <!-- Cookie --> <script src="js/jquery.cookie.js"></script> <script src="js/cookie_kontrol.js"></script> <!-- Cookie -->
+
+    <!--    Veri Aktarımı    -->
+    <!-- Mesajlar --> <script src="js/mesaj.js"></script>
+    <!--  Giriş Yapan Kullanıcı --> <script src="js/user.js"></script>
+    <!-- Personel --> <script src="js/personel_is.js"></script>
+    <!-- Veri Aktarımı --> 
+    <!-- Menu --> <script src="js/menu.js"></script>
+    <!-- Logout --> <script src="js/logout.js"></script> 
+  </body>
+</html>
